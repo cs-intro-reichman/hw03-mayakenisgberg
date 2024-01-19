@@ -12,14 +12,16 @@ public class LowerCase {
     */
     public static String lowerCase(String s) {
         String answer = "";
+        // #feedback: bad indentations
         for (int i=0; i<s.length();i++)
         {
-          char c = s.charAt(i);
-          if (c>=65 && c<=90)
-          {
-                c=(char)(c+32); 
-          }
-            answer=answer+c;
+              char c = s.charAt(i);
+              if (c>=65 && c<=90)
+              {
+                    c=(char)(c+32); 
+              }
+              // #feedback: x = x + n equivalent to x += n
+              answer += c;
         }
         return answer;
     }

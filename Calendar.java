@@ -16,22 +16,22 @@ public class Calendar {
 	 */
 	public static void main(String args[]) 
     {
-        int checkyear= Integer.parseInt(args [0]);
+	    // #feedback: use camelCase for variables names
+        int checkYear= Integer.parseInt(args [0]);
         int sundayCounter=0;
-		while (year<checkyear)
+	while (year<checkyear)
          {
             advance();
          }
-         while	(year==checkyear)
+         while	(year==checkYear)
          {
-           System.out.print(dayOfMonth+"/"+month+"/"+year);
-            if(dayOfWeek==1)
-			{
-				System.out.print(" Sunday");
-			}
-			System.out.println();
-			advance();
-
+		 System.out.print(dayOfMonth+"/"+month+"/"+year);
+		 if(dayOfWeek==1)
+		{
+			System.out.print(" Sunday");
+		}
+		System.out.println();
+		advance();
         }
     }
 
@@ -50,18 +50,19 @@ public class Calendar {
 		}
 		else
 		{
-
+			// #feedback: use always {} to sceope content of condtion - even when there is only one line of code.
 			if (dayOfMonth==nDaysInMonth)//if you made it to the end of the month start a new one, else advance
 			{
 				month++;
-				if (month==13)
+				if (month==13) {
 					month=1;
+				}
 				nDaysInMonth=nDaysInMonth(month, year);
 				dayOfMonth=1;
-
 			}
-			else
+			else {
 				dayOfMonth++;
+			}
 		}
 		if(dayOfWeek==7)//if you made it to the end of the week, start over
 			dayOfWeek=1;
@@ -80,24 +81,23 @@ public class Calendar {
 	 
 	private static int nDaysInMonth(int month, int year)
 	 {
-		int days = 31;
 		switch (month)
 		{
-			case 4: days= 30 ;
-			break;
-			case 6: days= 30 ;
-			break;
-			case 9: days= 30 ;
-			break;
-			case 11: days= 30 ;
-			break;
+			// #feedback: you might use switch here like this:
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				return 30;
 			case 2: 
-				if (isLeapYear(year))
-					days=29;
-				else
-					days=28;
-				break;
-			}
-		return days;		
+				if (isLeapYear(year)) {
+					return 29;
+				}
+				else {
+					return 28;
+				}
+			default:
+				return 31
+		}
 	}
 }
