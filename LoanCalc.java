@@ -44,8 +44,9 @@ public class LoanCalc {
     	double payment = loan/n;
     	while (endBalance(loan, rate, n, payment)>=epsilon)
     	{
-        payment = payment + epsilon;
-        iterationCounter++;
+		// #feedback: bad indentations
+        	payment = payment + epsilon;
+        	iterationCounter++;
     	}
     	return payment;
     }
@@ -64,12 +65,14 @@ public class LoanCalc {
     	double payment=(L+H)/2;
     	while((H-L)>epsilon)
     	{
-    		if (endBalance(loan, rate, n, payment) *endBalance(loan, rate, n, L)>=0)
+		// #feedback: please always use {} to scope your condition even when there is only one line of code.
+    		if (endBalance(loan, rate, n, payment) *endBalance(loan, rate, n, L)>=0) {
     			L=payment;
-    			
-    		else
+		}
+    		else {
     			H=payment;
-    			
+		}
+
     		payment = (L + H) / 2;
     		iterationCounter++;
     	}
