@@ -12,10 +12,12 @@ public class UniqueChars {
      */
     public static String uniqueChars(String s) {
         String answer="";
+        // #feedback: sometimes it right to define variables just to make code clear
+        char space = ' ';
         for (int i=0; i<s.length();i++)
         {
             char c = s.charAt(i);
-            if( c == 32|| answer.indexOf(c)==-1)
+            if( c == space|| answer.indexOf(c)==-1)
                 answer=answer+c;
         }
         return answer;
